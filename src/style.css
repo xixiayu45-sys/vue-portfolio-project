@@ -1,0 +1,279 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+  color: #475569;
+  font-family: system-ui, "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/*导航模块*/
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.site-header h1 {
+  color: #0f172a;
+  font-size: 28px;
+  margin: 0;
+}
+
+.site-header a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.site-header a:hover {
+  background: #eff6ff;
+}
+
+/*首屏模块*/
+.hero-section {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  align-items: center;
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 32px;
+  box-shadow: 0px 20px 5px rgb(15, 23, 42, 0.08);
+}
+
+.hero-section h2 {
+  font-size: 36px;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  color: #0f172a;
+}
+
+.hero-section p {
+  line-height: 1.7;
+}
+
+/* 通用内容区： */
+.page-section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.page-section h2 {
+  color: #0f172a;
+  margin-top: 0;
+}
+
+.status-message {
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #64748b;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.error-message {
+  border-color: #fecaca;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.empty-message {
+  background: #f8fafc;
+  color: #64748b;
+}
+
+/* 技能模块： */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.skills-list li {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  padding: 8px 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skills-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 16px 20px rgb(15, 23, 42, 0.1);
+}
+
+
+/* 项目模块： */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  background: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 16px 36px rgb(15, 23, 42, 0.1);
+}
+
+.project-desc {
+  color: #475569;
+  line-height: 1.7;
+}
+
+.project-tech-text {
+  color: #7c3aed;
+  background: #f3e8ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 999px;
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 14px;
+
+}
+
+.project-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 16px 0 0;
+  list-style: none;
+}
+
+.project-techs li {
+  color: #7c3aed;
+  background: #f3e8ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 14px
+}
+
+.article-bt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 12px 18px;
+}
+
+.primary-button {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.secondary-button {
+  background: #ffffff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+}
+
+.danger-button {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.project-form {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px 16px;
+  align-items: center;
+}
+
+.project-form input {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+/* 移动端： */
+@media(max-width:760px) {
+
+  .app-shell {
+    padding: 20px 14px;
+  }
+
+  .page-section {
+    padding: 20px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-form {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-button,
+  .secondary-button,
+  .danger-button {
+    width: 100%;
+  }
+
+  .site-header,
+  .hero-section {
+    display: block;
+  }
+
+  .site-header nav {
+    margin-top: 16px;
+  }
+
+  .hero-section {
+    padding: 28px;
+  }
+
+}
+
+.site-footer {
+  color: #64748b;
+  text-align: center;
+  padding: 24px 0;
+}

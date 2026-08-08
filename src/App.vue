@@ -171,8 +171,9 @@ async function deleteProjects(id) {
 
       <section id="contact" class="page-section">
         <h2>联系方式</h2>
-        <p>邮箱：待补充</p>
-        <p>GitHub：待补充</p>
+        <p>邮箱：y459452003@163.com</p>
+        <p>电话：17370743547</p>
+        <p>GitHub：https://github.com/xixiayu45-sys</p>
       </section>
 
     </main>

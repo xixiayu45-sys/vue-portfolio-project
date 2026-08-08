@@ -94,27 +94,26 @@ async function deleteProjects(id) {
 <template>
   <div class="app-shell">
     <header class="site-header">
-      <h1 class="title-word">我的前端主页</h1>
+      <h1 class="title-word">我的前端作品集</h1>
       <nav aria-label="主要导航">
-        <a href="#hero">首屏介绍</a>
+        <a href="#hero">首页</a>
         <a href="#about">关于我</a>
-        <a href="#skills">技能区</a>
-        <a href="#featured-projects">精选项目</a>
-        <a href="#project-dashboard">项目管理入口</a>
-        <a href="#contact">联系方式</a>
-        <a href="#footer">页脚</a>
+        <a href="#skills">技能</a>
+        <a href="#featured-projects">项目展示</a>
+        <a href="#project-dashboard">项目管理</a>
+        <a href="#contact">联系我</a>
       </nav>
     </header>
 
     <main>
       <section id="hero" class="hero-section">
-        <h2>前端开发学习者 / Vue 项目构建中</h2>
-        <p>目标：构建一个 Vue + Express + MySQL 的作品管理系统</p>
+        <h2>前端开发作品集 / Vue 项目实践</h2>
+        <p>基于 Vue 3、Express 和 MySQL 构建的个人作品展示与项目管理页面</p>
       </section>
 
       <section id="about" class="page-section">
         <h2>关于我</h2>
-        <p>正在学习前端，当前重点是 Vue、后端接口、MySQL</p>
+        <p>我是一名计算机科学与技术专业学生，专注于前端开发方向，熟悉 HTML、CSS、JavaScript 基础，正在学习 Vue 3、接口交互和 MySQL 数据库应用，能够独立完成基础页面开发和项目部署。</p>
       </section>
 
       <section id="skills" class="page-section">

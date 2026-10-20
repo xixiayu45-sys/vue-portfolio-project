@@ -1,8 +1,37 @@
 <script setup>
-import { ref, onMounted } from "vue"
+import { ref, computed, onMounted } from "vue"
 
 const skills = ["HTML", "CSS", "JavaScript", "Vue", "Node.js", "Express", "MySQL", "Git"]
 const projects = ref([])
+const featuredProjects = [
+  {
+    title: "个人前端求职主页",
+    description: "使用语义化 HTML、CSS 和原生 JavaScript 搭建个人求职展示页面，包含个人介绍、技能展示、项目经历和联系方式。",
+    tech_stack: "HTML5 · CSS3 · JavaScript · DOM",
+    repoUrl: "https://github.com/xixiayu45-sys/portfolio-project"
+  },
+  {
+    title: "Vue 个人作品集",
+    description: "基于 Vue 3、Vite、Express 和 MySQL 构建个人作品集，使用响应式布局展示个人资料与项目，并通过接口实现项目数据管理。",
+    tech_stack: "Vue 3 · Vite · Express · MySQL · REST API",
+    repoUrl: "https://github.com/xixiayu45-sys/vue-portfolio-project"
+  },
+  {
+    title: "TicketRush 票务活动管理后端",
+    description: "基于 Spring Boot、MyBatis-Plus 和 MySQL 构建票务活动管理接口，提供活动增删改查、分页查询、库存与时间校验、统一响应和全局异常处理，并持续扩展用户注册与密码加密能力。",
+    tech_stack: "Java · Spring Boot · MyBatis-Plus · MySQL · REST API",
+    repoUrl: "https://github.com/xixiayu45-sys/TicketRush"
+  }
+]
+
+const databaseProjects = computed(() => {
+  const featuredTitles = new Set(featuredProjects.map((project) => {
+    return project.title.trim().toLowerCase()
+  }))
+  return projects.value.filter((project) => {
+    return !featuredTitles.has(String(project.title).trim().toLowerCase())
+  })
+})
 
 const loading = ref(false)
 const errorMessage = ref("")
@@ -127,12 +156,30 @@ async function deleteProjects(id) {
 
       <section id="featured-projects" class="page-section">
         <h2>项目</h2>
-        <p v-if="loading" class="status-message" >项目加载中...</p>
-        <p v-else-if="errorMessage" class="status-message error-message">{{ errorMessage }}</p>
-        <p v-else-if="projects.length === 0" class="status-message empty-message">暂无项目，请先添加项目</p>
+        <p v-if="loading" class="status-message">数据库项目加载中...</p>
+        <p v-else-if="errorMessage" class="status-message error-message">数据库项目加载失败：{{ errorMessage }}</p>
+        <p v-else-if="databaseProjects.length === 0" class="status-message empty-message">已展示精选项目，可在下方继续添加其他项目。</p>
 
-        <div v-else class="project-grid">
-          <article class="project-card" v-for="project in projects" :key="project.id">
+        <div class="project-grid">
+          <article class="project-card featured-project-card" v-for="project in featuredProjects" :key="project.repoUrl">
+            <p class="project-kicker">Featured Project</p>
+            <h3>{{ project.title }}</h3>
+            <p class="project-desc">{{ project.description }}</p>
+            <p class="project-tech-text">{{ project.tech_stack }}</p>
+            <div class="article-bt">
+              <a
+                class="project-link"
+                :href="project.repoUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                :aria-label="`在新窗口打开 ${project.title} 的 GitHub 仓库`"
+              >
+                查看 GitHub 仓库
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card" v-for="project in databaseProjects" :key="project.id">
             <h3>{{ project.title }}</h3>
             <p class="project-desc">{{ project.description }}</p>
             <p class="project-tech-text">{{ project.tech_stack }}</p>
